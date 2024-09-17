@@ -31,7 +31,7 @@ const App = () => {
 
   // Видалення контакту
   const deleteContact = (contactId) => {
-    setContacts(contacts.filter((contact) => contact.id !== contactId));
+    setContacts((prevContacts) => prevContacts.filter(contact => contact.id !== contactId));
   };
 
   // Фільтрація контактів

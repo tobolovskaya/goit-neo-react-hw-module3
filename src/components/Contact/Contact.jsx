@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Contact.module.css';
 
 const Contact = ({ id, name, number, deleteContact }) => {
@@ -6,7 +7,10 @@ const Contact = ({ id, name, number, deleteContact }) => {
       <p>
         <span className={styles.contactName}>{name}</span>: {number}
       </p>
-      <button className={styles.deleteButton} onClick={() => deleteContact(id)}>
+      <button
+        className={styles.deleteButton}
+        onClick={() => deleteContact(id)}  // Викликаємо функцію видалення
+      >
         Delete
       </button>
     </li>
