@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ContactList from '../ContactList/ContactList';
+import SearchBox from '../SearchBox/SearchBox';
 import styles from './App.module.css';
 
 const App = () => {
@@ -11,15 +12,30 @@ const App = () => {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ]);
 
+  // Стан для фільтра
+  const [filter, setFilter] = useState('');
+
   // Функція для видалення контакту
   const deleteContact = (contactId) => {
     setContacts(contacts.filter(contact => contact.id !== contactId));
   };
 
+  // Функція для фільтрації контактів
+  const getFilteredContacts = () => {
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  };
+
   return (
     <div className={styles.container}>
       <h1>Phonebook</h1>
-      <ContactList contacts={contacts} deleteContact={deleteContact} />
+      
+      {/* Поле пошуку */}
+      <SearchBox filter={filter} setFilter={setFilter} />
+      
+      {/* Список контактів */}
+      <ContactList contacts={getFilteredContacts()} deleteContact={deleteContact} />
     </div>
   );
 };

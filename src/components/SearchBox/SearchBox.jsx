@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './SearchBox.module.css';
 
 const SearchBox = ({ filter, setFilter }) => {
@@ -8,7 +9,7 @@ const SearchBox = ({ filter, setFilter }) => {
         type="text"
         id="filter"
         value={filter}
-        onChange={(e) => setFilter(e.target.value)}
+        onChange={(e) => setFilter(e.target.value)}  // Оновлюємо значення фільтру
       />
     </div>
   );
