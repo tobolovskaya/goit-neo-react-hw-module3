@@ -6,7 +6,7 @@ import SearchBox from '../SearchBox/SearchBox';
 import styles from './App.module.css';
 
 const App = () => {
-  // Ініціалізуємо стан контактів, зчитуючи їх з localStorage або використовуючи порожній масив
+  // Ініціалізація контактів з localStorage
   const [contacts, setContacts] = useState(() => {
     const savedContacts = localStorage.getItem('contacts');
     return savedContacts ? JSON.parse(savedContacts) : [];
@@ -14,7 +14,7 @@ const App = () => {
 
   const [filter, setFilter] = useState('');
 
-  // Використовуємо useEffect для збереження контактів у localStorage при кожній зміні контактів
+  // Використання useEffect для збереження контактів у localStorage при кожній зміні контактів
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
@@ -48,7 +48,7 @@ const App = () => {
   return (
     <div className={styles.container}>
       <h1>Phonebook</h1>
-
+      
       {/* Форма для додавання контакту */}
       <ContactForm addContact={addContact} />
 
