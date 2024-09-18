@@ -4,13 +4,12 @@ import * as Yup from 'yup';
 import styles from './ContactForm.module.css';
 
 const ContactForm = ({ addContact }) => {
-  // Початкові значення полів
+
   const initialValues = {
     name: '',
     number: '',
   };
 
-  // Валідація полів форми за допомогою Yup
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(3, 'Name must be at least 3 characters')
@@ -21,10 +20,9 @@ const ContactForm = ({ addContact }) => {
       .required('Number is required'),
   });
 
-  // Сабміт форми
   const onSubmit = (values, { resetForm }) => {
     addContact(values);
-    resetForm(); // Скидання форми після сабміту
+    resetForm(); 
   };
 
   return (
