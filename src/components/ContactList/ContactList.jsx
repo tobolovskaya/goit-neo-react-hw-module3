@@ -11,7 +11,7 @@ const ContactList = ({ contacts, deleteContact }) => {
           id={id}
           name={name}
           number={number}
-          deleteContact={deleteContact}  // Передаємо функцію видалення
+          deleteContact={deleteContact}  
         />
       ))}
     </ul>
