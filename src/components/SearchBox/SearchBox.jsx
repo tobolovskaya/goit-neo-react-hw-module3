@@ -9,7 +9,7 @@ const SearchBox = ({ filter, setFilter }) => {
         type="text"
         id="filter"
         value={filter}
-        onChange={(e) => setFilter(e.target.value)}  // Оновлюємо значення фільтру
+        onChange={(e) => setFilter(e.target.value)} 
       />
     </div>
   );
