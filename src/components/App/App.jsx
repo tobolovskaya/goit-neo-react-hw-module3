@@ -15,7 +15,6 @@ const App = () => {
 
   const [filter, setFilter] = useState('');
 
-  // Додавання нового контакту
   const addContact = (newContact) => {
     const isDuplicate = contacts.some(
       (contact) => contact.name.toLowerCase() === newContact.name.toLowerCase()
@@ -29,12 +28,10 @@ const App = () => {
     setContacts((prevContacts) => [...prevContacts, { id: nanoid(), ...newContact }]);
   };
 
-  // Видалення контакту
   const deleteContact = (contactId) => {
     setContacts((prevContacts) => prevContacts.filter(contact => contact.id !== contactId));
   };
 
-  // Фільтрація контактів
   const getFilteredContacts = () => {
     return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -45,13 +42,10 @@ const App = () => {
     <div className={styles.container}>
       <h1>Phonebook</h1>
       
-      {/* Форма для додавання контакту */}
       <ContactForm addContact={addContact} />
 
-      {/* Поле пошуку */}
       <SearchBox filter={filter} setFilter={setFilter} />
 
-      {/* Список контактів */}
       <ContactList contacts={getFilteredContacts()} deleteContact={deleteContact} />
     </div>
   );
